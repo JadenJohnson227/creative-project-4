@@ -15,7 +15,9 @@
   </div>
   <div class="footer">
     <router-link to="/post">Post</router-link>
+    <p></p>
     <router-link to="/delete">Delete</router-link>
+    <p></p>
     <a href ='https://github.com/JadenJohnson227/creative-project-4'>Github repository</a>
   </div>
 </div>
@@ -30,6 +32,10 @@
   color: #2c3e50;
 }
 
+#app h1 {
+  color: blue;
+}
+
 #nav {
   padding: 30px;
 }
@@ -41,5 +47,25 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#content {
+  width: 65%;
+  margin: auto;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.footer {
+  background-color: blue;
+  color: orange;
+  padding: 20px;
+}
+
+.footer a {
+  color: white;
 }
 </style>

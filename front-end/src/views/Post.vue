@@ -2,8 +2,8 @@
   <div class="post">
     <h1>Post Page</h1>
     <div class="heading">
-
-      <h2>Add a Comment</h2>
+      
+      <h2>Write a tweet...</h2>
     </div>
     <div class="add">
       <div class="form">
