@@ -14,7 +14,7 @@
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/post">Post</router-link>
+    <router-link to="/sort">Sort</router-link>
     <p></p>
     <router-link to="/delete">Delete</router-link>
     <p></p>

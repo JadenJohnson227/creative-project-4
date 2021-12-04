@@ -19,7 +19,7 @@
       </div>
       <div class="like-buttons">
         <button @click="like(item)">Like {{item.likes}}</button>
-        <button @click="dislike(item)">Unlike {{item.dislikes}}</button>
+        <button @click="dislike(item)">Dislike {{item.dislikes}}</button>
       </div>
     </div>
   </section>

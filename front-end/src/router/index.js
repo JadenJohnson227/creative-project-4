@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Post from '../views/Post.vue'
+import Sort from '../views/Sort.vue'
 import Delete from '../views/Delete.vue'
 
 Vue.use(VueRouter)
@@ -13,9 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/post',
-    name: 'post',
-    component: Post
+    path: '/sort',
+    name: 'sort',
+    component: Sort
   },
   {
     path:'/delete',

@@ -2,7 +2,7 @@
   <div class="delete">
     <h1>Delete/Edit Page</h1>
     <div class="heading">
-      
+
       <h2>Edit/Delete an Item</h2>
     </div>
     <div class="edit">
