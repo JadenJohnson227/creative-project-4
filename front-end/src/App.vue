@@ -18,6 +18,8 @@
     <p></p>
     <router-link to="/delete">Delete</router-link>
     <p></p>
+    <router-link to="/">Home</router-link>
+    <p></p>
     <a href ='https://github.com/JadenJohnson227/creative-project-4'>Github repository</a>
   </div>
 </div>
