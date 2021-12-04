@@ -27,7 +27,8 @@ const upload = multer({
 const itemSchema = new mongoose.Schema({
   name: String,
   comment: String,
-  liked: Boolean,
+  likes: Number,
+  dislikes: Number,
 });
 
 // Create a model for items in the museum.
@@ -38,7 +39,8 @@ app.post('/api/items', async (req, res) => {
   const item = new Item({
     name: req.body.name,
     comment: req.body.comment,
-    liked: req.body.liked,
+    likes: req.body.likes,
+    dislikes: req.body.dislikes,
   });
   try {
     await item.save();
@@ -95,7 +97,22 @@ app.put('/api/items/like/:id', async (req, res)=>{
     let item = await Item.findOne({
       _id: req.params.id
     });
-    item.liked = !item.liked;
+    item.likes = item.likes + 1;
+    item.save();
+    res.sendStatus(200);
+  }catch(error){
+    console.log(error);
+    res.sendStatus(500);
+  }
+})
+
+app.put('/api/items/dislike/:id', async (req, res)=>{
+  console.log("in Dislike API" + req.params.id);
+  try{
+    let item = await Item.findOne({
+      _id: req.params.id
+    });
+    item.dislikes = item.dislikes + 1;
     item.save();
     res.sendStatus(200);
   }catch(error){

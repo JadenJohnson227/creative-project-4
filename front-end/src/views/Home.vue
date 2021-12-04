@@ -6,7 +6,7 @@
       <div class="form">
         <input v-model="name" placeholder="Name">
         <p></p>
-        <textarea v-model="comment" placeholder="Comment"></textarea>
+        <textarea v-model="comment" placeholder="Your thoughts here..."></textarea>
         <p></p>
         <button @click="upload">Upload</button>
       </div>
@@ -17,11 +17,9 @@
         <h3>{{item.comment}}</h3>
         <p><em>-{{item.name}}</em></p>
       </div>
-      <div class="like-button" v-if="!item.liked">
-        <button @click="like(item)">Like</button>
-      </div>
-      <div class="like-button" v-else>
-        <button @click="like(item)">Unlike</button>
+      <div class="like-buttons">
+        <button @click="like(item)">Like {{item.likes}}</button>
+        <button @click="dislike(item)">Unlike {{item.dislikes}}</button>
       </div>
     </div>
   </section>
@@ -66,7 +64,8 @@ export default {
         await axios.post('/api/items', {
           name: this.name,
           comment: this.comment,
-          liked: false
+          likes: 0,
+          dislikes: 0,
         });
         this.getItems();
       } catch (error) {
@@ -77,6 +76,16 @@ export default {
       console.log(item._id);
       try {
         await axios.put("/api/items/like/" + item._id)
+        this.getItems();
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async dislike(item) {
+      console.log(item._id);
+      try {
+        await axios.put("/api/items/dislike/" + item._id)
         this.getItems();
         return true;
       } catch (error) {
@@ -95,8 +104,16 @@ export default {
     border-radius: 15px;
   }
 
-  .like-button {
+  .like-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     margin-bottom: 20px;
+  }
+
+  .like-buttons button {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .content {
